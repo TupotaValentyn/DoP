@@ -1,4 +1,4 @@
-const Question = require("./DoP/api/models/question");
+const Question = require("./DoP/api/models/Question");
 
 const mongoose = require("mongoose");
 
