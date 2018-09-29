@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Start.css'
-import Logo from '../../assets/Logo.png'
+import Logo from '../../assets/Logo1.png'
 
 export default class Start extends React.Component{
   render(){

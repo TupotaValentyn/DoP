@@ -8,7 +8,7 @@ export default class Li extends React.Component{
   }
   render(){
     return(
-      <li>{this.props.name}</li>
+      <li className='LI'>{this.props.name}</li>
     )
   }
 }

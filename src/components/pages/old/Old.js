@@ -1,5 +1,8 @@
 import React from 'react'
 import { apiTest } from '../../../api'
+import LogoB from '../../atoms/Logo/Logo'
+import Li from '../../molecules/Li/Li'
+import './Old.css'
 
 export default class Old extends React.Component{
 
@@ -10,18 +13,61 @@ export default class Old extends React.Component{
     }));
   }
 
+
+  handleChange = (e) => {
+    let name = e.target.question;
+    this.setState({
+      value: e.target.value
+    })
+    console.log(this.state.value)
+  }
+
+  valueSub = () => {
+    console.log(this.state.value)
+
+  }
+
+
   state = {
-    timestamp: 'no timestamp yet'
+    timestamp: 'no timestamp yet',
+    value: ''
   };
 
 
 
   render(){
     return(
-      <div className='old_question'>
-        <button onClick={apiTest}>for lex</button>
-        This is the timer value: {this.state.timestamp}
+      <div className='wrapper_old'>
+        <LogoB />
+        <div>
+          {/*<form action={this.handleSubmit}>*/}
+            <input
+              type="text"
+              placeholder='Введіть ваше запитання'
+              name='question'
+              value={this.state.value}
+              onChange={this.handleChange}
+            />
+            <button onClick={this.valueSub}>Спросить</button>
+          {/*</form>*/}
+        </div>
+        <div>
+          <ol>
+            {/*<p>*/}
+              {/*Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.*/}
+            {/*</p>*/}
+            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+          </ol>
+        </div>
+
       </div>
     )
   }
 }
+
+
+// {This is the timer value: {this.state.timestamp}
