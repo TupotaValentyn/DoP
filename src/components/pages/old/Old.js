@@ -1,8 +1,10 @@
 import React from 'react'
-import { apiTest } from '../../../api'
+import { apiTest, valueData } from '../../../api'
 import LogoB from '../../atoms/Logo/Logo'
 import Li from '../../molecules/Li/Li'
 import './Old.css'
+
+
 
 export default class Old extends React.Component{
 
@@ -22,11 +24,12 @@ export default class Old extends React.Component{
     console.log(this.state.value)
   }
 
-  valueSub = () => {
-    console.log(this.state.value)
 
+
+  data = {
+    author: 'valik',
+    question: this.state.value
   }
-
 
   state = {
     timestamp: 'no timestamp yet',
@@ -48,7 +51,7 @@ export default class Old extends React.Component{
               value={this.state.value}
               onChange={this.handleChange}
             />
-            <button onClick={this.valueSub}>Спросить</button>
+            <button onClick={this.valueData}>Спросить</button>
           {/*</form>*/}
         </div>
         <div>

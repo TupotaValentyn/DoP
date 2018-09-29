@@ -4,4 +4,9 @@ const  socket = openSocket('http://localhost:80');
 function apiTest(data) {
   socket.emit("add question",{data:data.author, guestion:data.question});
   }
-export { apiTest };
+
+function valueData(){
+  socket.emit("add question", data)
+}
+
+export { apiTest, valueData };
