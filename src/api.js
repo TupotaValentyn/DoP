@@ -5,7 +5,7 @@ function apiTest(data) {
   socket.emit("add question",{data:data.author, guestion:data.question});
   }
 
-function valueData(){
+function valueData(data ){
   socket.emit("add question", data)
 }
 
