@@ -1,5 +1,5 @@
 import React from 'react'
-import { apiTest } from '../../../api'
+import { apiTest2, apiTest } from '../../../api'
 
 export default class Old extends React.Component{
 
@@ -16,12 +16,12 @@ export default class Old extends React.Component{
 
 
 
-  render(){
-    return(
-      <div className='old_question'>
-        <button onClick={apiTest}>for lex</button>
-        This is the timer value: {this.state.timestamp}
-      </div>
-    )
+  render() {
+    console.log(this.state.timestamp.data);
+          return (
+              <div className='old_question'>
+                  <button onClick = {apiTest2}>Test</button>
+              </div>
+          )
+      }
   }
-}
