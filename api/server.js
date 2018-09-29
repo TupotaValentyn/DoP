@@ -51,14 +51,13 @@ function addQuestion(data){
         answers:[]
     });
 
-    oneQuestion.save((err)=>{
-        if (err) throw err;
+    oneQuestion.save(()=>{
         console.log("")
     });
 };
 
 function addAnswer(data){
-    Question.findById(data.id,(docs)=>{
+    Question.findById(data.id,(err,docs)=>{
         let answers = docs.answers;
         answers.push(data.answer);
         Question.findByIdAndUpdate(data.id, {answers: answers}, (err)=>{
@@ -70,7 +69,7 @@ function addAnswer(data){
 };
 
 function sendQuestionsWithoutAnswer(socket){
-    Question.find({answers:[]}).exec((docs)=>{
+    Question.find({answers:[]}).exec((err,docs)=>{
         console.log(docs)
         socket.emit("questions without answer", {data:docs},(err)=>{
             console.log("Successfully send question without answer")
@@ -79,7 +78,7 @@ function sendQuestionsWithoutAnswer(socket){
     })
 };
 function sendQuestionOfThisUser(socket, author){
-    Question.find({author:author}).exec((docs)=>{
+    Question.find({author:author}).exec((err,docs)=>{
         console.log(docs)
         socket.emit("questions of this user", {data:docs})
     })
@@ -114,3 +113,6 @@ let data = {
  // }
  //
  // search("you me");
+Question.find({answers:[]}).exec((err,docs)=>{
+    console.log(docs)
+    })
