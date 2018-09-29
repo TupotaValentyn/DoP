@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 
 const app = require("http").createServer();
 
+const Faq = require("./models/Faq");
+
 const io = require("socket.io")(app);
 
 app.listen(80);
@@ -14,7 +16,7 @@ mongoose.connect("mongodb://localhost/dop",{ useNewUrlParser: true }, (err)=>{
 });
 
 io.on("connection", (socket)=>{
-    console.log("Successfuly client connected");
+    console.log("Successfully client connected");
 
     socket.on("get question without answer", (err, data)=>{
         if (err) throw err;
@@ -66,13 +68,14 @@ function addAnswer(data){
             console.log('successfully updated');
         });
     });
+    showNotification(socket, data.author);
 };
 
 function sendQuestionsWithoutAnswer(socket){
     Question.find({answers:[]}).exec((err,docs)=>{
         if (err) throw err;
+        console.log(docs)
         socket.emit("questions without answer", {data:docs},(err)=>{
-            if (err) throw err;
             console.log("Successfully send question without answer")
         })
 
@@ -88,9 +91,30 @@ function sendQuestionOfThisUser(socket, author){
 
 function sendFaq(socket){
     Faq.find((err, docs)=>{
+        console.log(docs);
         if (err) return console.log(err);
         socket.emit("faq", {data:docs})
     })
 }
 
+function showNotification(socket, author){
+    socket.emit("show notification", {author:author})
+}
 
+let data = {
+    author: "Valik",
+    question: "You help me?",
+    answers: []
+}
+ // function search(phrase){
+ // Question.find(
+ //         { $text : { $search : phrase } },
+ //         { score : { $meta: "textScore" } }
+ //     )
+ //         .sort({ score : { $meta : 'textScore' } })
+ //         .exec(function(err, results) {
+ //             console.log(results)
+ //         });
+ // }
+ //
+ // search("you me");
