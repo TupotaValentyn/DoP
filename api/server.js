@@ -18,28 +18,27 @@ mongoose.connect("mongodb://Valik:qwer1234@ds052978.mlab.com:52978/dop",{ useNew
 io.on("connection", (socket)=>{
     console.log("Successfully client connected");
 
-    socket.on("get question without answer", (err, data)=>{
-        if (err) throw err;
+    socket.on("get question without answer", ()=>{
         sendQuestionsWithoutAnswer(socket);
     })
 
-    socket.on("get question of this user", (err, data)=>{
-        if (err) throw err;
+    socket.on("get question of this user", (data)=>{
         sendQuestionOfThisUser(socket, data.author)
     })
 
-    socket.on("add question", (err, data)=>{
-        if (err) throw err;
-        addQuestion(data);
+    socket.on("add question", (data)=>{
+        console.log("Прийшло");
+        console.log(data.author);
+        if(data.author != undefined) {
+            addQuestion(data);
+        }
     })
 
-    socket.on("add answer", (err, data)=>{
-        if (err) throw err;
+    socket.on("add answer", (data)=>{
         addAnswer(data);
     })
 
-    socket.on("get faq", (err, data)=>{
-        if (err) throw err;
+    socket.on("get faq", ()=>{
         sendFaq(socket);
     })
 })
@@ -59,8 +58,7 @@ function addQuestion(data){
 };
 
 function addAnswer(data){
-    Question.findById(data.id,(err, docs)=>{
-        if(err) throw err;
+    Question.findById(data.id,(docs)=>{
         let answers = docs.answers;
         answers.push(data.answer);
         Question.findByIdAndUpdate(data.id, {answers: answers}, (err)=>{
@@ -72,8 +70,7 @@ function addAnswer(data){
 };
 
 function sendQuestionsWithoutAnswer(socket){
-    Question.find({answers:[]}).exec((err,docs)=>{
-        if (err) throw err;
+    Question.find({answers:[]}).exec((docs)=>{
         console.log(docs)
         socket.emit("questions without answer", {data:docs},(err)=>{
             console.log("Successfully send question without answer")
@@ -82,8 +79,7 @@ function sendQuestionsWithoutAnswer(socket){
     })
 };
 function sendQuestionOfThisUser(socket, author){
-    Question.find({author:author}).exec((err, docs)=>{
-        if(err) throw err;
+    Question.find({author:author}).exec((docs)=>{
         console.log(docs)
         socket.emit("questions of this user", {data:docs})
     })
