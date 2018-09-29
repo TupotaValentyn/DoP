@@ -16,6 +16,7 @@ mongoose.connect("mongodb://localhost/dop",{ useNewUrlParser: true }, (err)=>{
 io.on("connection", (socket)=>{
     socket.on("get question without answer", (err, data)=>{
         if (err) throw err;
+        console.log("Successfuly client connected");
         sendQuestionsWithoutAnswer(socket);
     })
 })
