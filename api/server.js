@@ -16,6 +16,7 @@ mongoose.connect("mongodb://Valik:qwer1234@ds052978.mlab.com:52978/dop",{ useNew
 });
 
 io.on("connection", (socket)=>{
+    sendQuestionsWithoutAnswer(socket);
     console.log("Successfully client connected");
 
     socket.on("get question without answer", ()=>{
