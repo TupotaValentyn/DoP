@@ -8,7 +8,7 @@ export default class Li extends React.Component{
   }
   render(){
     return(
-      <li className='LI'>{this.props.name}</li>
+      <li className='LI' onClick={this.props.onClick} f = {this.props.f}>{this.props.name}</li>
     )
   }
 }

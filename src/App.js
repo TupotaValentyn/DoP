@@ -4,9 +4,7 @@ import './App.css';
 import {Switch, Route} from 'react-router-dom'
 import QuestionY from './components/pages/young/Question/Question'
 import Old from './components/pages/old/Old'
-import Young from './components/pages/young/Young'
-// import Old from './components/pages/old/Old/Old'
-// import QuestionY from './components/pages/young/Old/Old'
+import formAnswer from './components/organisms/formAnswers/formQuestion'
 
 class App extends Component {
 
@@ -14,10 +12,9 @@ class App extends Component {
       return(
         <div className='App'>
           <Switch>
-            <Route exact path='/' component={Start} />
-            <Route exact path='/old' component={Old} />
-            <Route path='/young' component={Young} />
-            <Route path='/question' component={QuestionY} />
+            <Route exact path='/' component={ Start } />
+            <Route exact path='/old' component={ Old } />
+            <Route path='/young' component={ QuestionY } />
           </Switch>
         </div>
       )

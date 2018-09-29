@@ -1,0 +1,41 @@
+:root{
+  --color-b: #E5F1EA ;
+  --color-p: #FBD8C0 ;
+}
+
+
+
+.wrapper_young{
+  overflow-x: hidden;
+  display: grid;
+  grid: 100px 1fr/ 1fr;
+  background: var(--color-b);
+  height: 150vh;
+  width: calc(100vw - 17.4px);
+  overflow-y: hidden;
+}
+
+.wrapper_young > div:nth-of-type(1){
+  width: 200px;
+  height: 100px;
+}
+.wrapper_young > div > img{
+  object-fit: cover;
+}
+
+.wrapper_young > ol {
+  display: grid;
+  grid: repeat(auto-fill, minmax(1fr,70px))/ 1fr;
+  place-self: start center;
+  width: 600px;
+  background: transparent;
+  grid-gap: 15px;
+  height: calc(100vh - 150px)
+  /*overflow-y: scroll;*/
+
+}
+
+.wrapper_young > ol > li{
+  display: grid;
+  /*height: ;*/
+}
