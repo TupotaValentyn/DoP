@@ -14,10 +14,31 @@ mongoose.connect("mongodb://localhost/dop",{ useNewUrlParser: true }, (err)=>{
 });
 
 io.on("connection", (socket)=>{
+    console.log("Successfuly client connected");
+
     socket.on("get question without answer", (err, data)=>{
         if (err) throw err;
-        console.log("Successfuly client connected");
         sendQuestionsWithoutAnswer(socket);
+    })
+
+    socket.on("get question of this user", (err, data)=>{
+        if (err) throw err;
+        sendQuestionOfThisUser(socket, data.author)
+    })
+
+    socket.on("add question", (err, data)=>{
+        if (err) throw err;
+        addQuestion(data);
+    })
+
+    socket.on("add answer", (err, data)=>{
+        if (err) throw err;
+        addAnswer(data);
+    })
+
+    socket.on("get faq", (err, data)=>{
+        if (err) throw err;
+        sendFaq(socket);
     })
 })
 
@@ -57,11 +78,19 @@ function sendQuestionsWithoutAnswer(socket){
 
     })
 };
+function sendQuestionOfThisUser(socket, author){
+    Question.find({author:author}).exec((err, docs)=>{
+        if(err) throw err;
+        console.log(docs)
+        socket.emit("questions of this user", {data:docs})
+    })
+}
 
-// let data = {
-//     author: "Valik",
-//     question: "Why i so fagot?"
-// }
-// addQuestion(data);
+function sendFaq(socket){
+    Faq.find((err, docs)=>{
+        if (err) return console.log(err);
+        socket.emit("faq", {data:docs})
+    })
+}
 
 
