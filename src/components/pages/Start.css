@@ -16,9 +16,19 @@ section:nth-of-type(2){
   background: #E5F1EA;
 }
 
-button{
-  width: 200%;
-  height: 80px;
+.wrapper > section >a{
+  width: 500px;
+  height: 120px;
+  border-radius: 10px;
+  border: 0;
+}
+
+.wrapper > section:nth-of-type(1) > a:nth-of-type(1){
+  background: #E5F1EA;
+}
+
+.wrapper > section:nth-of-type(2) > a:nth-of-type(1){
+  background: #FBD8C0;
 }
 
 
@@ -27,12 +37,21 @@ button{
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  background: white;
+  width: 400px;
+  height: 200px;
+  background: transparent;
 }
 
 .wrapper section{
   display: grid;
   place-items: center;
+}
+
+img{
+  object-fit: cover;
+  transform: scale(.7);
+  opacity: .8;
+  width: 100%;
+  height: 100%;
+
 }

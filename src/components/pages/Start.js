@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Start.css'
+import Logo from '../../assets/Logo.png'
 
 export default class Start extends React.Component{
   render(){
@@ -8,16 +9,16 @@ export default class Start extends React.Component{
       <div className='wrapper'>
         <section>
           <Link to='/old' >
-            <button>old</button>
+            {/*<button>old</button>*/}
           </Link>
         </section>
         <section>
           <Link to='/young' >
-            <button>young</button>
+            {/*<button>young</button>*/}
           </Link>
         </section>
         <div className='logo'>
-          <img src='' alt="" />
+          <img src={Logo} alt=""/>
         </div>
 
       </div>
