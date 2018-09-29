@@ -1,11 +1,25 @@
 const Question = require("./models/Question");
-const Answer = require("./models/Answers");
+
 const mongoose = require("mongoose");
+
+const app = require("http").createServer();
+
+const io = require("socket.io")(app);
+
+app.listen(80);
 
 mongoose.connect("mongodb://localhost/dop",{ useNewUrlParser: true }, (err)=>{
     if (err) throw err;
     console.log("Successfully connected");
 });
+
+io.on("connection", (socket)=>{
+    socket.on("get question without answer", (err, data)=>{
+        if (err) throw err;
+        sendQuestionsWithoutAnswer(socket);
+    })
+})
+
 
 function addQuestion(data){
     let oneQuestion = new Question({
@@ -28,11 +42,25 @@ function addAnswer(data){
         Question.findByIdAndUpdate(data.id, {answers: answers}, (err)=>{
             if (err) throw err;
             console.log('successfully updated');
-        })
-    })
-}
-let data = {
-    id: "5baf414df61f5204dce711da",
-    answer: "I come to talk"
+        });
+    });
 };
-addAnswer(data);
+
+function sendQuestionsWithoutAnswer(socket){
+    Question.find({answers:[]}).exec((err,docs)=>{
+        if (err) throw err;
+        socket.emit("questions without answer", {data:docs},(err)=>{
+            if (err) throw err;
+            console.log("Successfully send question without answer")
+        })
+
+    })
+};
+
+// let data = {
+//     author: "Valik",
+//     question: "Why i so fagot?"
+// }
+// addQuestion(data);
+
+
