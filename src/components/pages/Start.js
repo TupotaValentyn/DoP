@@ -8,12 +8,12 @@ export default class Start extends React.Component{
       <div className='wrapper'>
         <section>
           <Link to='/old' >
-            <input type='text' value='old'/>
+            <button>old</button>
           </Link>
         </section>
         <section>
           <Link to='/young' >
-            <input type='text' value='young'/>
+            <button>young</button>
           </Link>
         </section>
         <div className='logo'>

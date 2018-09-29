@@ -8,3 +8,8 @@
 .wrapper section{
   background: red;
 }
+
+button{
+  width: 200%;
+  height: 80px;
+}
