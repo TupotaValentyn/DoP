@@ -10,7 +10,7 @@ const io = require("socket.io")(app);
 
 app.listen(80);
 
-mongoose.connect("mongodb://Valik:qwer1234@ds052978.mlab.com:52978/dop",{ useNewUrlParser: true }, (err)=>{
+mongoose.connect("mongodb://localhost/dop",{ useNewUrlParser: true }, (err)=>{
     if (err) throw err;
     console.log("Successfully connected");
 });
@@ -102,18 +102,13 @@ let data = {
     question: "You help me?",
     answers: []
 }
- // function search(phrase){
- // Question.find(
- //         { $text : { $search : phrase } },
- //         { score : { $meta: "textScore" } }
- //     )
- //         .sort({ score : { $meta : 'textScore' } })
- //         .exec(function(err, results) {
- //             console.log(results)
- //         });
- // }
- //
- // search("you me");
-Question.find({answers:[]}).exec((err,docs)=>{
-    console.log(docs)
-    })
+function search(phrase){Faq.find(
+    { $text : { $search : phrase } },
+    { score : { $meta: "textScore" } }
+    )
+    .sort({ score : { $meta : 'textScore' } })
+    .exec(function(err, results) {
+        console.log(results)
+    });
+}
+
