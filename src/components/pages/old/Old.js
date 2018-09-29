@@ -39,6 +39,7 @@ export default class Old extends React.Component{
 
 
   render(){
+
     return(
       <div className='wrapper_old'>
         <LogoB />

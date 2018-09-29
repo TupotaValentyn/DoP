@@ -17,6 +17,7 @@ class App extends Component {
             <Route exact path='/' component={Start} />
             <Route exact path='/old' component={Old} />
             <Route path='/young' component={Young} />
+            <Route path='/question' component={QuestionY} />
           </Switch>
         </div>
       )
