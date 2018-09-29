@@ -102,18 +102,13 @@ let data = {
     question: "You help me?",
     answers: []
 }
- // function search(phrase){
- // Question.find(
- //         { $text : { $search : phrase } },
- //         { score : { $meta: "textScore" } }
- //     )
- //         .sort({ score : { $meta : 'textScore' } })
- //         .exec(function(err, results) {
- //             console.log(results)
- //         });
- // }
- //
- // search("you me");
-Question.find({answers:[]}).exec((err,docs)=>{
-    console.log(docs)
-    })
+function search(phrase){Faq.find(
+    { $text : { $search : phrase } },
+    { score : { $meta: "textScore" } }
+    )
+    .sort({ score : { $meta : 'textScore' } })
+    .exec(function(err, results) {
+        console.log(results)
+    });
+}
+

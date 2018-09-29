@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 
 const faq = mongoose.Schema({
     question: String,
-    answers: String
+    answer: String
     });
 
-const Faq = mongoose.model("faq", faq);
+const Faq = mongoose.model("faqs", faq);
 
 module.exports = Faq;
