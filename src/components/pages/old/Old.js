@@ -24,23 +24,26 @@ export default class Old extends React.Component{
     console.log(this.state.value)
   }
 
+    state = {
+        timestamp: 'no timestamp yet',
+        value: ''
+    };
+
+
 
 
   data = {
     author: 'valik',
-    question: this.state.value
-  }
-
-  state = {
-    timestamp: 'no timestamp yet',
-    value: ''
+    question:  this.state.value
   };
+
 
 
 
   render(){
     return(
       <div className='wrapper_old'>
+
         <LogoB />
         <div>
           {/*<form action={this.handleSubmit}>*/}
@@ -51,7 +54,7 @@ export default class Old extends React.Component{
               value={this.state.value}
               onChange={this.handleChange}
             />
-            <button onClick={this.valueData}>Спросить</button>
+            <button onClick={() => valueData(this.data)}>Спросить</button>
           {/*</form>*/}
         </div>
         <div>
