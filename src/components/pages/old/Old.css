@@ -1,0 +1,81 @@
+* {
+  border: none;
+ outline: none;
+  border-radius: 5px;
+
+}
+
+.wrapper_old{
+}
+
+.wrapper_old{
+  display: grid;
+  grid: 100px 50px 1fr/ 1fr;
+  width: 100vw;
+  height: 100vh;
+  background: #FBD8C0;
+}
+
+.wrapper_old > div:nth-of-type(1){
+  width: 200px;
+  height: 100px;
+  margin: 10px 0;
+}
+
+.wrapper_old > div > img{
+  object-fit: cover;
+}
+.wrapper_old > div:nth-of-type(2){
+  place-self: start center;
+  margin: 20px 0;
+}
+
+.wrapper_old > div > input{
+  /*cursor: pointer;*/
+  width: 590px;
+  font-size: 30px;
+  padding: 0 10px;
+  height: 50px;
+}
+
+.wrapper_old > div > button{
+  text-align: center;
+  cursor: pointer;
+  background: #98CEB4;
+  border: none;
+  height: 50px;
+  font-size: 30px;
+  color: white;
+  width: 190px;
+  margin: 0 0 0 20px;
+}
+
+.wrapper_old > div:nth-of-type(3){
+  display: grid;
+  margin: 50px 0;
+  position: relative;
+  place-self: start center;
+  
+}
+
+.wrapper_old > div:nth-of-type(3) > ol {
+  background: rgba(255, 255, 255);
+  padding: 20px;
+  grid-gap: 20px;
+  display: grid;
+  list-style: none;
+  grid: repeat(auto-fill, minmax(1fr, 70px))/ 1fr;
+  width: 800px;
+  height: 370px;
+  place-self: start center;
+}
+
+
+.wrapper_old > div:nth-of-type(3) > ol > li{
+  background: rgba(229, 241, 234, .6);
+  box-shadow: 10px 5px 0 rgba(251, 216, 192, .6);
+  font-size: 18px;
+
+}
+
+

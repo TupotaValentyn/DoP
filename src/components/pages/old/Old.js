@@ -1,5 +1,10 @@
 import React from 'react'
-import { apiTest2, apiTest } from '../../../api'
+import { apiTest, valueData } from '../../../api'
+import LogoB from '../../atoms/Logo/Logo'
+import Li from '../../molecules/Li/Li'
+import './Old.css'
+
+
 
 export default class Old extends React.Component{
 
@@ -10,18 +15,62 @@ export default class Old extends React.Component{
     }));
   }
 
+
+  handleChange = (e) => {
+    let name = e.target.question;
+    this.setState({
+      value: e.target.value
+    })
+    console.log(this.state.value)
+  }
+
+
+
+  data = {
+    author: 'valik',
+    question: this.state.value
+  }
+
   state = {
-    timestamp: 'no timestamp yet'
+    timestamp: 'no timestamp yet',
+    value: ''
   };
 
 
 
-  render() {
-    console.log(this.state.timestamp.data);
-          return (
-              <div className='old_question'>
-                  <button onClick = {apiTest2}>Test</button>
-              </div>
-          )
-      }
+  render(){
+    return(
+      <div className='wrapper_old'>
+        <LogoB />
+        <div>
+          {/*<form action={this.handleSubmit}>*/}
+            <input
+              type="text"
+              placeholder='Введіть ваше запитання'
+              name='question'
+              value={this.state.value}
+              onChange={this.handleChange}
+            />
+            <button onClick={this.valueData}>Спросить</button>
+          {/*</form>*/}
+        </div>
+        <div>
+          <ol>
+            {/*<p>*/}
+              {/*Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.*/}
+            {/*</p>*/}
+            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+          </ol>
+        </div>
+
+      </div>
+    )
   }
+}
+
+
+// {This is the timer value: {this.state.timestamp}
