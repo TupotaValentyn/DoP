@@ -1,12 +1,10 @@
 import openSocket from 'socket.io-client';
 
 const  socket = openSocket('http://localhost:80');
-function apiTest(data) {
-  socket.emit("add question",{data:data.author, guestion:data.question});
+function apiTest(cb) {
+  socket.emit("get question without answer",()=>{
+
+  });
+  socket.on("questions without answer", timestamp => cb(null, timestamp));
   }
-
-function valueData(){
-  socket.emit("add question", data)
-}
-
-export { apiTest, valueData };
+export { apiTest };
