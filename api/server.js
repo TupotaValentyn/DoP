@@ -10,7 +10,7 @@ const io = require("socket.io")(app);
 
 app.listen(80);
 
-mongoose.connect("mongodb://Valik:qwer1234@ds052978.mlab.com:52978/dop",{ useNewUrlParser: true }, (err)=>{
+mongoose.connect("mongodb://localhost/dop",{ useNewUrlParser: true }, (err)=>{
     if (err) throw err;
     console.log("Successfully connected");
 });
