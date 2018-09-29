@@ -27,18 +27,20 @@
 }
 .wrapper_old > div:nth-of-type(2){
   place-self: start center;
-  margin: 20px 0;
+  margin: -55px 0;
+  display: grid;
+  grid: 1fr 1fr/ 1fr ;
 }
 
 .wrapper_old > div > input{
   /*cursor: pointer;*/
-  width: 590px;
+  width: 800px;
   font-size: 30px;
   padding: 0 10px;
   height: 50px;
 }
 
-.wrapper_old > div > button{
+.wrapper_old > div > div > button{
   text-align: center;
   cursor: pointer;
   background: #98CEB4;
@@ -46,9 +48,19 @@
   height: 50px;
   font-size: 30px;
   color: white;
-  width: 190px;
-  margin: 0 0 0 20px;
+
 }
+
+.wrapper_old > div > div > button:nth-of-type(1){
+  margin: 10px 0 0 0;
+  width: 600px;
+}
+
+.wrapper_old > div > div > button:nth-of-type(2){
+  margin: 10px 0 0 20px;
+  width: 180px;
+}
+
 
 .wrapper_old > div:nth-of-type(3){
   display: grid;

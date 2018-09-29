@@ -15,26 +15,26 @@ export default class Old extends React.Component{
     }));
   }
 
+  sendQuestion = () =>{
+    valueData({author: 'valik', question: this.state.value})
+  }
 
   handleChange = (e) => {
-    let name = e.target.question;
     this.setState({
       value: e.target.value
     })
     console.log(this.state.value)
   }
 
-
+  state = {
+    timestamp: 'no timestamp yet',
+    value: ''
+  };
 
   data = {
     author: 'valik',
     question: this.state.value
   }
-
-  state = {
-    timestamp: 'no timestamp yet',
-    value: ''
-  };
 
 
 
@@ -51,7 +51,11 @@ export default class Old extends React.Component{
               value={this.state.value}
               onChange={this.handleChange}
             />
-            <button onClick={this.valueData}>Спросить</button>
+          <div>
+            <button onClick={this.sendQuestion}>Спросить</button>
+            <button>Answers</button>
+          </div>
+
           {/*</form>*/}
         </div>
         <div>
