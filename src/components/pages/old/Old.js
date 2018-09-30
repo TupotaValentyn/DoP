@@ -1,22 +1,30 @@
 import React from 'react'
-import { apiTest, valueData } from '../../../api'
+import {faqResult, getFAQ, valueData} from '../../../api'
 import LogoB from '../../atoms/Logo/Logo'
-import Li from '../../molecules/Li/Li'
+import LiOld from '../../molecules/LiOld/LiOld'
+import { Link } from 'react-router-dom'
 import './Old.css'
 
 
 
 export default class Old extends React.Component{
 
-  constructor(props) {
-    super(props);
-    apiTest((err, timestamp) => this.setState({
-      timestamp
-    }));
-  }
+  // constructor(props) {
+  //   super(props);
+  //   getFAQ((err, timestamp) => this.setState({
+  //     timestamp
+  //   )));
+  //
+  // }
 
   sendQuestion = () =>{
     valueData({author: 'valik', question: this.state.value})
+    this.setState({isOpened: !this.state.isOpened})
+  }
+
+  componentDidMount() {
+    faqResult((err, data) => this.setState({timestamp: data}))
+    getFAQ();
   }
 
   handleChange = (e) => {
@@ -27,7 +35,7 @@ export default class Old extends React.Component{
   }
 
   state = {
-    timestamp: 'no timestamp yet',
+    timestamp: undefined,
     value: ''
   };
 
@@ -36,10 +44,16 @@ export default class Old extends React.Component{
     question: this.state.value
   }
 
-
-
   render(){
+    if(this.state.timestamp === undefined){
+      return <div></div>
+    }
+    const { timestamp } = this.state;
+    console.log(timestamp)
 
+    let itemValue = timestamp.data.map( item => {
+      return (<LiOld  name = {`Question:${item.question}`} answer = {`Answer:${item.answer}`}/>)
+    });
     return(
       <div className='wrapper_old'>
         <LogoB />
@@ -54,9 +68,9 @@ export default class Old extends React.Component{
             />
           <div>
             <button onClick={this.sendQuestion}>Спросить</button>
-            <button>Answers</button>
+            <button><Link to='./answers'>Answer</Link></button>
           </div>
-
+          {console.log(this.state)}
           {/*</form>*/}
         </div>
         <div>
@@ -64,11 +78,7 @@ export default class Old extends React.Component{
             {/*<p>*/}
               {/*Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.*/}
             {/*</p>*/}
-            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
-            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
-            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
-            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
-            <Li name='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cupiditate.'/>
+            {itemValue.reverse()}
           </ol>
         </div>
 

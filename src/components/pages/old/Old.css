@@ -71,7 +71,7 @@
 }
 
 .wrapper_old > div:nth-of-type(3) > ol {
-  background: rgba(255, 255, 255);
+  background: rgb(255, 255, 255);
   padding: 20px;
   grid-gap: 20px;
   display: grid;

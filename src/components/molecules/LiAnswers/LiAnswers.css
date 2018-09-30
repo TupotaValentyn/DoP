@@ -1,0 +1,10 @@
+:root{
+  --color-b: #E5F1EA ;
+  --color-p: #FBD8C0 ;
+}
+
+.liAnswers{
+  background: white;
+  padding: 10px;
+}
+

@@ -13,4 +13,24 @@ function getQuestion (){
   socket.emit('get question without answer')
 }
 
-export { apiTest, valueData, getQuestion };
+function getFAQ () {
+  socket.emit("get faq")
+}
+
+function faqResult (cb) {
+  socket.on('faq', timestamp => cb(null, timestamp));
+}
+
+function sendAnswer(data){
+  socket.emit('add answer', {id: data.id, answer: data.answer})
+}
+
+function userQuestion() {
+  socket.emit('user question', {author: 'valik'})
+}
+
+function finalResult (cb) {
+  socket.on('user question', timestamp => cb(null, timestamp))
+}
+
+export { apiTest, valueData, getQuestion, getFAQ, faqResult,sendAnswer, finalResult, userQuestion};

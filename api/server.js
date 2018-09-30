@@ -10,20 +10,19 @@ const io = require("socket.io")(app);
 
 app.listen(80);
 
-mongoose.connect("mongodb://localhost/dop",{ useNewUrlParser: true }, (err)=>{
+mongoose.connect("mongodb://Valik:qwer1234@ds052978.mlab.com:52978/dop",{ useNewUrlParser: true }, (err)=>{
     if (err) throw err;
     console.log("Successfully connected");
 });
 
 io.on("connection", (socket)=>{
-    sendQuestionsWithoutAnswer(socket);
     console.log("Successfully client connected");
 
     socket.on("get question without answer", ()=>{
         sendQuestionsWithoutAnswer(socket);
     })
 
-    socket.on("get question of this user", (data)=>{
+    socket.on("user question", (data)=>{
         sendQuestionOfThisUser(socket, data.author)
     })
 
@@ -66,7 +65,7 @@ function addAnswer(data){
             console.log('successfully updated');
         });
     });
-    showNotification(socket, data.author);
+    //showNotification(socket, data.author);
 };
 
 function sendQuestionsWithoutAnswer(socket){
@@ -80,8 +79,10 @@ function sendQuestionsWithoutAnswer(socket){
 };
 function sendQuestionOfThisUser(socket, author){
     Question.find({author:author}).exec((err,docs)=>{
+        console.log('получен запрос на ответы и вопросы')
         console.log(docs)
-        socket.emit("questions of this user", {data:docs})
+        console.log("the end")
+        socket.emit("user question", {data:docs})
     })
 }
 

@@ -3,39 +3,34 @@
   --color-p: #FBD8C0 ;
 }
 
-
-
-.wrapper_young{
+.old_answers{
   overflow-x: hidden;
   display: grid;
   grid: 100px 1fr/ 1fr;
-  background: var(--color-b);
-  height: 150vh;
-  width: calc(100vw - 17.4px);
+  background: var(--color-p);
+  height: 200vh;
+  width: calc(100vw - 17.5px);
   overflow-y: hidden;
 }
 
-.wrapper_young > div:nth-of-type(1){
+.old_answers > div:nth-of-type(1){
   width: 200px;
   height: 100px;
 }
-.wrapper_young > div > img{
+.old_answers > div > img{
   object-fit: cover;
 }
 
-.wrapper_young > ol {
+.old_answers > ol {
+  top: -15px; position: relative;
   display: grid;
   grid: repeat(auto-fill, minmax(1fr,70px))/ 1fr;
   place-self: start center;
   width: 600px;
-  background: transparent;
+  background: var(--color-b);
   grid-gap: 15px;
-  height: calc(150vh - 150px)
-  /*overflow-y: scroll;*/
+  height: 150vh;
+  list-style: none;
+  padding: 10px;
 
-}
-
-.wrapper_young > ol > li{
-  display: grid;
-  /*height: ;*/
 }

@@ -5,6 +5,7 @@ import {Switch, Route} from 'react-router-dom'
 import QuestionY from './components/pages/young/Question/Question'
 import Old from './components/pages/old/Old'
 import formAnswer from './components/organisms/formAnswers/formQuestion'
+import Answers from './components/pages/old/Answers/Answers'
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
             <Route exact path='/' component={ Start } />
             <Route exact path='/old' component={ Old } />
             <Route path='/young' component={ QuestionY } />
+            <Route path='/answers' component={ Answers } />
           </Switch>
         </div>
       )

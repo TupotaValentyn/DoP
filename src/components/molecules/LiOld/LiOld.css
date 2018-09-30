@@ -1,0 +1,10 @@
+.LiOld{
+  display: grid;
+  width: 100%;
+  background: white;
+  place-content: center start;
+  padding: 0 10px;
+  box-shadow: 10px 5px 0 #FBD8C0;
+  cursor: pointer;
+  z-index: 0;
+}

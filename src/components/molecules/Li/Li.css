@@ -6,5 +6,39 @@
   padding: 0 10px;
   box-shadow: 10px 5px 0 #FBD8C0;
   cursor: pointer;
+  z-index: 0;
 }
+.LI > div{
+  display: grid;
+  grid-gap: 10px;
+
+}
+
+.LI > div > textarea {
+  width: 600px;
+  height: 100px;
+  background: #FBD8C0;
+  resize: none;
+  padding: 10px;
+  box-shadow: inset -5px -10px 3px rgba(229, 241, 234, .6);
+}
+.LI > div > button{
+  background: #FBD8C0;
+  width: 200px;
+  height: 50px;
+  border: none !important;
+  place-self: center;
+}
+
+.LI > div > p {
+  color: #98CEB4;
+  place-self: end;
+  z-index: 99;
+  transform: rotate(0deg);
+  font-size: 4ex;
+  /*background: #E5F1EA*/
+}
+
+
+
 
