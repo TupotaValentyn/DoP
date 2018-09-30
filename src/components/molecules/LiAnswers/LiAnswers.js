@@ -17,17 +17,11 @@ export default class LiAnswers extends React.Component{
       this.setState({isOpened: !this.state.isOpened})
     }
 
-    if(this.state.isOpened){
-      par = <p>{this.props.answers}</p>
-    }else{
-      par = null
-    }
-
     return(
 
       <li className='liAnswers' onClick={this.showMore}>
         <p>{this.props.question}</p>
-        {par}
+        <p>{this.props.answers}</p>
       </li>
     )
   }

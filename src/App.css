@@ -1,9 +1,16 @@
+@font-face {
+  font-family: 'my-font';
+  src: url("./assets/Autoradiographic_Rg.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
+.App{
+  font-family: 'my-font';
+}
 
 

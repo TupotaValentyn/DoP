@@ -46,7 +46,7 @@ export default class QuestionY extends React.Component{
     // });
 
     let valueQuestion = timestamp.data.map( item => {
-      return (<Li onClick={liClick}  name = {`Question:${item.question}`} id = {item._id} />)
+      return (<Li onClick={liClick}  name = {`Запитання : ${item.question}`} id = {item._id} />)
     });
 
     let liClick = () =>{

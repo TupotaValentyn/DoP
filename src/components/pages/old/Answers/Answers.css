@@ -29,8 +29,13 @@
   width: 600px;
   background: var(--color-b);
   grid-gap: 15px;
-  height: 150vh;
+  height: 100vh;
   list-style: none;
-  padding: 10px;
+  padding: 20px;
+  cursor: pointer;
+  font-size: 22px;
 
+}
+.old_answers > ol > li{
+  box-shadow: 10px 5px #FBD8C0;
 }

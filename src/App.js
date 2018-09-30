@@ -4,8 +4,9 @@ import './App.css';
 import {Switch, Route} from 'react-router-dom'
 import QuestionY from './components/pages/young/Question/Question'
 import Old from './components/pages/old/Old'
-import formAnswer from './components/organisms/formAnswers/formQuestion'
 import Answers from './components/pages/old/Answers/Answers'
+import './App.css'
+
 
 class App extends Component {
 

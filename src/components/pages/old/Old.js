@@ -18,8 +18,11 @@ export default class Old extends React.Component{
   // }
 
   sendQuestion = () =>{
+    if(this.state.value === ''){
+      alert('skrrra')
+    }else{
     valueData({author: 'valik', question: this.state.value})
-    this.setState({isOpened: !this.state.isOpened})
+    this.setState({isOpened: !this.state.isOpened, value: ''})}
   }
 
   componentDidMount() {
@@ -31,12 +34,12 @@ export default class Old extends React.Component{
     this.setState({
       value: e.target.value
     })
-    console.log(this.state.value)
+    console.log()
   }
 
   state = {
     timestamp: undefined,
-    value: ''
+    value: '',
   };
 
   data = {
@@ -52,7 +55,7 @@ export default class Old extends React.Component{
     console.log(timestamp)
 
     let itemValue = timestamp.data.map( item => {
-      return (<LiOld  name = {`Question:${item.question}`} answer = {`Answer:${item.answer}`}/>)
+      return (<LiOld  name = {` - ${item.question}`} answer = {` - ${item.answer}`}/>)
     });
     return(
       <div className='wrapper_old'>
@@ -60,6 +63,7 @@ export default class Old extends React.Component{
         <div>
           {/*<form action={this.handleSubmit}>*/}
             <input
+              required
               type="text"
               placeholder='Введіть ваше запитання'
               name='question'
@@ -67,8 +71,8 @@ export default class Old extends React.Component{
               onChange={this.handleChange}
             />
           <div>
-            <button onClick={this.sendQuestion}>Спросить</button>
-            <button><Link to='./answers'>Answer</Link></button>
+            <button onClick={this.sendQuestion}>Запитати</button>
+            <button><Link to='./answers'>Відповіді</Link></button>
           </div>
           {console.log(this.state)}
           {/*</form>*/}

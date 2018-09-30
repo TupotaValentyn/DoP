@@ -1,6 +1,6 @@
 * {
   border: none;
- outline: none;
+  outline: none;
   border-radius: 5px;
 
 }
@@ -12,7 +12,7 @@
   display: grid;
   grid: 100px 50px 1fr/ 1fr;
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
   background: #FBD8C0;
 }
 
@@ -51,6 +51,11 @@
 
 }
 
+.wrapper_old > div > div > button > a{
+  color: white;
+  text-decoration: none;
+}
+
 .wrapper_old > div > div > button:nth-of-type(1){
   margin: 10px 0 0 0;
   width: 600px;
@@ -78,16 +83,30 @@
   list-style: none;
   grid: repeat(auto-fill, minmax(1fr, 70px))/ 1fr;
   width: 800px;
-  height: 370px;
+  height: 100vh;
   place-self: start center;
 }
 
 
 .wrapper_old > div:nth-of-type(3) > ol > li{
+  cursor: pointer;
+  padding: 10px;
+  color: rgba(0,0,0,.65555);
   background: rgba(229, 241, 234, .6);
   box-shadow: 10px 5px 0 rgba(251, 216, 192, .6);
-  font-size: 18px;
+  font-size: 20px;
+}
+input{
+  color: black;
+}
 
+input::-webkit-input-placeholder{
+  color: rgba(0,0,0,.5);
+
+}
+
+input::-webkit-input-placeholder:focus{
+  color: white;
 }
 
 

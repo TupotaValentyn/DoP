@@ -3,6 +3,14 @@
   --color-p: #FBD8C0 ;
 }
 
+*{
+  transition: all .5s ease;
+}
+
+*:hover{
+  transition: all .5s ease;
+}
+
 
 
 .wrapper_young{
@@ -30,12 +38,18 @@
   width: 600px;
   background: transparent;
   grid-gap: 15px;
-  height: calc(150vh - 150px)
+  height: calc(100vh - 150px);
+  font-size: 22px;
   /*overflow-y: scroll;*/
 
 }
 
 .wrapper_young > ol > li{
   display: grid;
+  width: 620px;
   /*height: ;*/
+}
+
+.wrapper_young > ol > li:hover{
+  font-size: 22.5px;
 }

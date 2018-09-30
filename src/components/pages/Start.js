@@ -9,12 +9,12 @@ export default class Start extends React.Component{
       <div className='wrapper'>
         <section>
           <Link to='/old' >
-            {/*<button>old</button>*/}
+            Задати питання
           </Link>
         </section>
         <section>
           <Link to='/young' >
-            {/*<button>young</button>*/}
+            Відповідати на питання
           </Link>
         </section>
         <div className='logo'>

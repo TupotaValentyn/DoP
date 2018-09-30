@@ -55,3 +55,15 @@ img{
   height: 100%;
 
 }
+
+section > a{
+  display: grid;
+  /*place-self: center;*/
+  text-align: center;
+  line-height: 115px;
+  text-decoration: none;
+  color: rgba(0,0,0,.6);
+  font-size: 40px;
+  filter: drop-shadow(2px 2px 5px #98CEB4);
+
+}

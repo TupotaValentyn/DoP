@@ -37,6 +37,8 @@ export default class Li extends React.Component{
   sendData = (e) => {
     e.stopPropagation()
     sendAnswer({answer: this.state.value, id: this.props.id})
+    this.setState({value: ''})
+    e.preventDefault()
   }
 
   render(){
@@ -45,7 +47,10 @@ export default class Li extends React.Component{
     if(this.state.isOpened && !this.state.close){
       form = <div>
         <p onClick={this.closeForm}> X </p>
-        <textarea onChange={this.handleChange}></textarea>
+        <textarea value={this.state.value}
+          onChange={this.handleChange}>
+
+        </textarea>
         <button onClick={this.sendData}>Submit</button>
       </div>
     }else{

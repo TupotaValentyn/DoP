@@ -31,7 +31,7 @@ export default class Answers extends React.Component{
     console.log(timestamp)
 
     let itemValue = timestamp.data.map( item => {
-      return (<LiAnswers  question = {`Question:${item.question}`} answers = {`Answer:${item.answers}`}/>)
+      return (<LiAnswers  question = {`Запитання : ${item.question}`} answers = {`Відповідь : ${item.answers}`}/>)
     });
 
     return(
